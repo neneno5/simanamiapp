@@ -1,0 +1,32 @@
+header {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    background-color: #FF69B4;
+    padding: 30px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #F5F5F5;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.link {
+    display: block;
+    margin: 10px;
+    padding: 20px;
+    background-color: #FFC0CB;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
