@@ -3,7 +3,7 @@ header {
     font-size: 24px;
     color: white;
     text-align: center;
-    background-color: #FF69B4;
+    background-color: #2C7CFF;
     padding: 30px;
 }
 body {
@@ -14,7 +14,8 @@ body {
 }
 .container {
     display: flex;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -22,11 +23,15 @@ body {
 .link {
     display: block;
     margin: 10px;
-    padding: 20px;
-    background-color: #FFC0CB;
+    padding: 30px;
+    background-color: #2E8B57;
     border-radius: 10px;
     color: white;
-    font-size: 16px;
+    font-size: 30px;
     text-align: center;
     text-decoration: none;
+    width: 350px;
 }
+li{
+    list-style:none;
+  }
