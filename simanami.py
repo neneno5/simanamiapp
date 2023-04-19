@@ -24,4 +24,4 @@ def map2():
     return render_template('map2.html', api_key=api_key)
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(port=8080, threaded=True)
