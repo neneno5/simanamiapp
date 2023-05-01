@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_login import UserMixin,LoginManager,login_user,logout_user,login_required
+from flask_login import logout_user,login_required
 import os
 from dotenv import load_dotenv
 from waitress import serve
