@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_login import UserMixin,LoginManager,login_user,logout_user,login_required
 import os
 from dotenv import load_dotenv
 from waitress import serve
@@ -33,14 +34,8 @@ def login():
         return redirect(url_for('index'))
     # パスワードが正しくない場合は、エラーメッセージを表示する
     else:
-        error = 'Invalid password. Please try again.'
+        error = 'パスワードが違うみたいだね<br>もう一度入力してね♪'
         return render_template('login.html', error=error)
-
-@app.route('/logout')
-def logout():
-    # セッションからログイン情報を削除して、ログアウト画面を表示する
-    session.pop('logged_in', None)
-    return render_template('logout.html')
 
 @app.route('/index')
 def index():
@@ -48,6 +43,13 @@ def index():
     if not session.get('logged_in'):
         return redirect(url_for('home'))
     return render_template('index.html')
+
+@app.route("/logout")
+@login_required
+def logout():
+    session.pop('logged_in', None)
+    logout_user()
+    return redirect("/login")   
 
 @app.route('/map1')
 def map1():
