@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask_login import logout_user,login_required
+from flask import Flask, render_template
 import os
 from dotenv import load_dotenv
 from waitress import serve
+from flask_httpauth import HTTPDigestAuth
 
 app = Flask(__name__)
 
@@ -10,59 +10,31 @@ app = Flask(__name__)
 load_dotenv()
 # Google Maps APIキーの取得
 api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
-# パスワードの設定
-password = os.environ.get('PASSWORD')
+app.config['SECRET_KEY'] = 'secret key here'
+auth = HTTPDigestAuth()
+id_list = {
+    "nene": "1111",
+    "tosiki": "2222"
+}
 
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-# セッションの秘密鍵を設定
-app.secret_key = os.environ.get('SECRET_KEY')
+#入力されたidに該当するパスワードを比較のために取得する
+@auth.get_password
+def get_pw(id):
+    if id in id_list:
+        return id_list.get(id)
+    return None
 
 @app.route('/')
-def home():
-    # セッションにログイン情報がある場合は、ログイン済みとしてトップページにリダイレクトする
-    if session.get('logged_in'):
-        return redirect(url_for('index'))
-    return render_template('login.html')
-
-@app.route('/login', methods=['POST'])
-def login():
-    # フォームから送信されたパスワードを取得
-    password_input = request.form['password']
-    # パスワードが正しい場合は、セッションにログイン情報を保存して、トップページにリダイレクトする
-    if password_input == password:
-        session['logged_in'] = True
-        return redirect(url_for('index'))
-    # パスワードが正しくない場合は、エラーメッセージを表示する
-    else:
-        error = 'パスワードが違うみたいだね<br>もう一度入力してね♪'
-        return render_template('login.html', error=error)
-
-@app.route('/index')
+@auth.login_required
 def index():
-    # セッションにログイン情報がない場合は、ログインページにリダイレクトする
-    if not session.get('logged_in'):
-        return redirect(url_for('home'))
-    return render_template('index.html')
-
-@app.route("/logout")
-@login_required
-def logout():
-    session.pop('logged_in', None)
-    logout_user()
-    return redirect("/login")   
+    return render_template('index.html') 
 
 @app.route('/map1')
 def map1():
-    # セッションにログイン情報がない場合は、ログインページにリダイレクトする
-    if not session.get('logged_in'):
-        return redirect(url_for('home'))
     return render_template('map1.html', api_key=api_key)
 
 @app.route('/map2')
 def map2():
-    # セッションにログイン情報がない場合は、ログインページにリダイレクトする
-    if not session.get('logged_in'):
-        return redirect(url_for('home'))
     return render_template('map2.html', api_key=api_key)
 
 if __name__ == '__main__':
