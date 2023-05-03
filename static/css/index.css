@@ -56,6 +56,7 @@ li{
     right: 20px;
     z-index: 100;/* 重なり順を一番上にする */
     cursor: pointer;
+    top: 20px;
   }
   
   /* ハンバーガーメニューのアイコン */
@@ -64,8 +65,8 @@ li{
   .drawer_open span:after {
     content: '';
     display: block;
-    height: 3px;
-    width: 25px;
+    height: 5px;
+    width: 35px;
     border-radius: 3px;
     background: #333;
     transition: 0.5s;
@@ -98,13 +99,13 @@ li{
     transform: rotate(-45deg);
   }
     
-  /* メニューのデザイン*/
-  .nav_content {
+/* メニューのデザイン*/
+.nav_content {
     width: 100%;
     height: 100%;
     position: fixed;
-    bottom: 100%;
-    left: 0%; /* メニューを画面の外に飛ばす */
+    top: 0%;
+    left: 100%; /* メニューを画面の外に飛ばす */
     z-index: 99;
     background: rgb(110, 110, 110);
     transition: .5s;
@@ -122,8 +123,8 @@ li{
     text-decoration: none;
   }
   
-  /* アイコンがクリックされたらメニューを表示 */
-  #drawer_input:checked ~ .nav_content {
-    bottom: 0;/* メニューを画面に入れる */
-    
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content {
+    left: 0;
   }
+  
