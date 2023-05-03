@@ -13,8 +13,9 @@ api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
 app.config['SECRET_KEY'] = 'secret key here'
 auth = HTTPDigestAuth()
 id_list = {
-    "nene": "1111",
-    "tosiki": "2222"
+    'nene': os.environ.get('NENEpass'),
+    'tosiki': os.environ.get('TOSIKIpass'),
+    'user': os.environ.get('USERpass')
 }
 
 #入力されたidに該当するパスワードを比較のために取得する
