@@ -15,10 +15,10 @@ body {
 .link {
     display: block;
     margin: 10px;
-    padding: 30px;
-    background-color: #2E8B57;
+    padding: 80px;
+    background-color:rgba(46,139,87,0.5);
     border-radius: 10px;
-    color: white;
+    color: black;
     font-size: 30px;
     text-align: center;
     text-decoration: none;
@@ -36,14 +36,6 @@ body {
     align-items: center;
     padding: 0;
 }
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    background: #fff;
-    position: relative;
-  }
   
   /* ここから下がハンバーガーメニューに関するCSS */
     
@@ -58,10 +50,10 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 20px;
+    right: 70px;
     z-index: 100;/* 重なり順を一番上にする */
     cursor: pointer;
-    top: 30px;
+    top: 60px;
   }
   
   /* ハンバーガーメニューのアイコン */
@@ -70,8 +62,8 @@ body {
   .drawer_open span:after {
     content: '';
     display: block;
-    height: 10px;
-    width: 60px;
+    height: 20px;
+    width: 120px;
     border-radius: 3px;
     background: #333;
     transition: 0.5s;
@@ -80,12 +72,12 @@ body {
   
   /* 三本線の一番上の棒の位置調整 */
   .drawer_open span:before {
-    bottom: 20px;
+    bottom: 40px;
   }
   
   /* 三本線の一番下の棒の位置調整 */
   .drawer_open span:after {
-    top: 20px;
+    top: 40px;
   }
   
   /* アイコンがクリックされたら真ん中の線を透明にする */
