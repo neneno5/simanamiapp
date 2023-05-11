@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@900&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +19,7 @@ body {
     padding: 80px;
     background-color:rgba(46,139,87,0.5);
     border-radius: 10px;
-    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@900&display=swap');
+    font-family: 'M PLUS 2', sans-serif;
     color: black;
     font-size: 55px;
     text-align: center;
