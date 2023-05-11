@@ -34,9 +34,9 @@ def index():
 def map1():
     return render_template('map1.html', api_key=api_key)
 
-@app.route('/map2')
-def map2():
-    return render_template('map2.html', api_key=api_key)
+@app.route('/overview')
+def overview():
+    return render_template('overview.html')
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8080)
