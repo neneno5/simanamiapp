@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap');
 
 body {
     margin: 0;
@@ -19,7 +19,7 @@ body {
     padding: 80px;
     background-color:rgba(46,139,87,0.5);
     border-radius: 10px;
-    font-family: 'M PLUS 2', sans-serif;
+    font-family: 'Kaisei Opti', serif;
     color: black;
     font-size: 55px;
     text-align: center;
