@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@500&display=swap');
 
 body {
     margin: 0;
@@ -20,7 +20,7 @@ body {
     background-color:rgba(173,216,230,0.5);
     border-radius: 10px;
     font-family: 'Kaisei Opti', serif;
-    color: black;
+    color: #663300;
     font-size: 60px;
     text-align: center;
     text-decoration: none;
@@ -122,6 +122,7 @@ body {
   .nav_item a {
     color: #fff;
     text-decoration: none;
+    font-size: 40px;
   }
   
 /* アイコンがクリックされたらメニューを表示 */
