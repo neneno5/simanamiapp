@@ -13,17 +13,17 @@ body {
     padding: 20px;
 }
 .link {
-    display: block;
     margin: 10px;
     padding: 80px;
     background-color:rgba(46,139,87,0.5);
     border-radius: 10px;
     color: black;
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     text-decoration: none;
     width: 350px;
 }
+
 
 .maplink {
     position: fixed;
