@@ -1,17 +1,66 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <script type="text/javascript" src="\static\css\a.js"></script>
-    </head>
-    <body>
-        <div id="page1">
-            <h1>Page 1</h1>
-            <p>Swipe left to go to page 2</p>
-        </div>
-        <div id="page2" style="display:none;">
-            <h1>Page 2</h1>
-            <p>Swipe right to go to page 1</p>
-        </div>
-    </body>
+<html>
+<head>
+  <title>Swipe Page Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    #page1, #page2 {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #page1 {
+      background-color: #F44336;
+    }
+    #page2 {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div id="page1">
+    <h1>Page 1</h1>
+    <p>Swipe left to go to page 2</p>
+  </div>
+  <div id="page2" style="display:none;">
+    <h1>Page 2</h1>
+    <p>Swipe right to go to page 1</p>
+  </div>
+  <script>
+    var startX;
+    var startY;
+    var threshold = 50; // スワイプの閾値
+
+    document.addEventListener('touchstart', function(e) {
+      var touch = e.touches[0];
+      startX = touch.pageX;
+      startY = touch.pageY;
+    });
+
+    document.addEventListener('touchmove', function(e) {
+      var touch = e.touches[0];
+      var deltaX = touch.pageX - startX;
+      var deltaY = touch.pageY - startY;
+      if (Math.abs(deltaX) > threshold) {
+        e.preventDefault(); // デフォルトのスクロールを無効にする
+        if (deltaX < 0) {
+          // 左にスワイプされた場合
+          document.getElementById('page1').style.display = 'none';
+          document.getElementById('page2').style.display = 'block';
+        } else {
+          // 右にスワイプされた場合
+          document.getElementById('page1').style.display = 'block';
+          document.getElementById('page2').style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
 </html>
