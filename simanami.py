@@ -38,5 +38,9 @@ def map1():
 def overview():
     return render_template('overview.html')
 
+@app.route('/islands')
+def islands():
+    return render_template('islands.html')
+
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8080)
