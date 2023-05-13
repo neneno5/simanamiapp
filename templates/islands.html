@@ -1,66 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Swipe Page Example</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-    #page1, #page2 {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    #page1 {
-      background-color: #F44336;
-    }
-    #page2 {
-      background-color: #4CAF50;
-    }
-  </style>
+	<meta charset="utf-8">
+	<title>6つの画面を切り替える</title>
+	<style>
+		.page {
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		
+		.page1 {
+			background-color: #ffcccc;
+		}
+		
+		.page2 {
+			background-color: #ffe6cc;
+		}
+		
+		.page3 {
+			background-color: #ffffcc;
+		}
+		
+		.page4 {
+			background-color: #ccffcc;
+		}
+		
+		.page5 {
+			background-color: #cce6ff;
+		}
+	</style>
 </head>
 <body>
-  <div id="page1">
-    <h1>Page 1</h1>
-    <p>Swipe left to go to page 2</p>
-  </div>
-  <div id="page2" style="display:none;">
-    <h1>Page 2</h1>
-    <p>Swipe right to go to page 1</p>
-  </div>
-  <script>
-    var startX;
-    var startY;
-    var threshold = 50; // スワイプの閾値
+	<div id="container">
+		<div id="page0" class="page">
+			<h1>ページ1</h1>
+			<p>スワイプして次のページに進んでください。</p>
+		</div>
+		<div id="page1" class="page">
+			<h1>ページ2</h1>
+			<p>スワイプして次のページに進んでください。</p>
+		</div>
+		<div id="page2" class="page">
+			<h1>ページ3</h1>
+			<p>スワイプして次のページに進んでください。</p>
+		</div>
+		<div id="page3" class="page">
+			<h1>ページ4</h1>
+			<p>スワイプして次のページに進んでください。</p>
+		</div>
+		<div id="page4" class="page">
+			<h1>ページ5</h1>
+			<p>スワイプして次のページに進んでください。</p>
+		</div>
+		<div id="page5" class="page">
+			<h1>ページ6</h1>
+			<p>これが最後のページです。</p>
+		</div>
+	</div>
+	
+	<script>
+		// スワイプ距離の閾値（ピクセル）
+const threshold = 50;
 
-    document.addEventListener('touchstart', function(e) {
-      var touch = e.touches[0];
-      startX = touch.pageX;
-      startY = touch.pageY;
-    });
+// タッチ開始位置
+let startX = null;
+let startY = null;
 
-    document.addEventListener('touchmove', function(e) {
-      var touch = e.touches[0];
-      var deltaX = touch.pageX - startX;
-      var deltaY = touch.pageY - startY;
-      if (Math.abs(deltaX) > threshold) {
-        e.preventDefault(); // デフォルトのスクロールを無効にする
-        if (deltaX < 0) {
-          // 左にスワイプされた場合
-          document.getElementById('page1').style.display = 'none';
-          document.getElementById('page2').style.display = 'block';
-        } else {
-          // 右にスワイプされた場合
-          document.getElementById('page1').style.display = 'block';
-          document.getElementById('page2').style.display = 'none';
-        }
-      }
-    });
-  </script>
+// 表示中のページのインデックス
+let currentIndex = 0;
+
+// ページの数
+const numPages = 6;
+
+// ページを切り替える関数
+function changePage(direction) {
+  // 現在表示しているページを非表示にする
+  document.getElementById(`page${currentIndex}`).style.display = 'none';
+
+  // 表示するページのインデックスを計算する
+  let nextIndex;
+  if (direction === 'left') {
+    nextIndex = (currentIndex + 1) % numPages;
+  } else {
+    nextIndex = (currentIndex + numPages - 1) % numPages;
+  }
+
+  // 表示するページを表示する
+  document.getElementById(`page${nextIndex}`).style.display = 'block';
+
+  // 表示中のページのインデックスを更新する
+  currentIndex = nextIndex;
+}
+
+// タッチ開始時に呼ばれる関数
+function touchStart(event) {
+  startX = event.touches[0].pageX;
+  startY = event.touches[0].pageY;
+}
+
+// タッチ移動時に呼ばれる関数
+function touchMove(event) {
+  event.preventDefault();
+}
+
+// タッチ終了時に呼ばれる関数
+function touchEnd(event) {
+  const endX = event.changedTouches[0].pageX;
+  const endY = event.changedTouches[0].pageY;
+  const diffX = endX - startX;
+  const diffY = endY - startY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > threshold) {
+      // 右にスワイプした場合
+      changePage('right');
+    } else if (diffX < -threshold) {
+      // 左にスワイプした場合
+      changePage('left');
+    }
+  }
+}
+
+// タッチ開始、移動、終了時にイベントリスナーを設定する
+const container = document.getElementById('container');
+container.addEventListener('touchstart', touchStart);
+container.addEventListener('touchmove', touchMove);
+container.addEventListener('touchend', touchEnd);
+
+// 最初に表示するページを表示する
+document.getElementById('page0').style.display = 'block';
+
+	</script>
 </body>
 </html>
