@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page 1</title>
+    <meta charset="UTF-8">
+    <title>Web App</title>
     <link rel="stylesheet" type="text/css" href="\static\css\islandssin.css">
     <script src="\static\javascript\islandssin.js"></script>
 </head>
@@ -17,6 +18,8 @@
         </ul>
     </nav>
     <h1>Page 1</h1>
-    <p>Content of Page 1</p>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
