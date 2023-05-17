@@ -38,36 +38,6 @@ def map1():
 def overview():
     return render_template('overview.html')
 
-
-@app.route('/islands1')
-def islands1():
-    return render_template('islands1.html')
-
-# 目次2のページの表示
-@app.route('/islands2')
-def islands2():
-    return render_template('islands2.html')
-
-# 目次3のページの表示
-@app.route('/islands3')
-def islands3():
-    return render_template('islands3.html')
-
-# 目次4のページの表示
-@app.route('/islands4')
-def islands4():
-    return render_template('islands4.html')
-
-# 目次5のページの表示
-@app.route('/islands5')
-def islands5():
-    return render_template('islands5.html')
-
-# 目次6のページの表示
-@app.route('/islands6')
-def islands6():
-    return render_template('islands6.html')
-
 @app.route('/islands')
 def islands():
     return render_template('islands.html')

@@ -1,98 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>しまなみ海道の各島について</title>
-	<link rel="stylesheet" href="\static\css\islands.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS スタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #navbar {
+            background-color: #f1f1f1;
+            overflow: hidden;
+        }
+        
+        #navbar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        #navbar a:hover {
+            background-color: #ddd;
+        }
+        
+        #navbar .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* 画面コンテンツ */
+        .page {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-	<div id="container">
-		<div id="page0" class="page">
-		<nav>
-			<ul class="headerlist">
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ1</h1>
-			<p>スワイプして次のページに進んでください。</p>
-		</div>
-		<div id="page1" class="page">
-		<nav class="headerlist">
-			<ul>
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ2</h1>
-			<p>スワイプして次のページに進んでください。</p>
-		</div>
-		<div id="page2" class="page">
-		<nav class="headerlist">
-			<ul>
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ3</h1>
-			<p>スワイプして次のページに進んでください。</p>
-		</div>
-		<div id="page3" class="page">
-		<nav class="headerlist">
-			<ul>
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ4</h1>
-			<p>スワイプして次のページに進んでください。</p>
-		</div>
-		<div id="page4" class="page">
-		<nav class="headerlist">
-			<ul>
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ5</h1>
-			<p>スワイプして次のページに進んでください。</p>
-		</div>
-		<div id="page5" class="page">
-		<nav class="headerlist">
-			<ul>
-				<li>大島</li>
-				<li>伯方島</li>
-				<li>大三島</li>
-				<li>生口島</li>
-				<li>因島</li>
-				<li>向島</li>
-			</ul>
-		</nav>
-			<h1>ページ6</h1>
-			<p>これが最後のページです。</p>
-		</div>
-	</div>
-	
-	<script src="\static\javascript\islands.js"></script>
+    <div id="navbar">
+        <a class="nav-item active" href="#" onclick="changePage(1)">Page 1</a>
+        <a class="nav-item" href="#" onclick="changePage(2)">Page 2</a>
+        <a class="nav-item" href="#" onclick="changePage(3)">Page 3</a>
+        <a class="nav-item" href="#" onclick="changePage(4)">Page 4</a>
+        <a class="nav-item" href="#" onclick="changePage(5)">Page 5</a>
+        <a class="nav-item" href="#" onclick="changePage(6)">Page 6</a>
+    </div>
+    
+    <div class="page" id="page1">
+        <h1>Page 1</h1>
+    </div>
+    <div class="page" id="page2">
+        <h1>Page 2</h1>
+    </div>
+    <div class="page" id="page3">
+        <h1>Page 3</h1>
+    </div>
+    <div class="page" id="page4">
+        <h1>Page 4</h1>
+    </div>
+    <div class="page" id="page5">
+        <h1>Page 5</h1>
+    </div>
+    <div class="page" id="page6">
+        <h1>Page 6</h1>
+    </div>
+
+    <script>
+        // JavaScript ロジック
+        var currentPage = 1;
+        
+        function showPage(page) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById("page" + page).style.display = "block";
+            
+            // 目次の色変更
+            var navItems = document.getElementsByClassName("nav-item");
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove("active");
+            }
+            document.querySelector(".nav-item:nth-child(" + page + ")").classList.add("active");
+            
+            currentPage = page;
+        }
+        
+        function changePage(page) {
+            if (currentPage !== page) {
+                showPage(page);
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    showPage(1); // 最初のページを表示
+    
+    // スワイプによる画面切り替え
+    var touchStartX = 0;
+    var touchEndX = 0;
+    var minSwipeDistance = 50; // スワイプとみなす最小距離
+    
+    document.addEventListener("touchstart", function(event) {
+        touchStartX = event.touches[0].clientX;
+    });
+    
+    document.addEventListener("touchend", function(event) {
+        touchEndX = event.changedTouches[0].clientX;
+        var swipeDistance = touchEndX - touchStartX;
+        
+        if (swipeDistance > minSwipeDistance && currentPage > 1) {
+            showPage(currentPage - 1); // 前のページを表示
+        } else if (swipeDistance < -minSwipeDistance && currentPage < 6) {
+            showPage(currentPage + 1); // 次のページを表示
+        }
+    });
+});
+</script>
+
 </body>
 </html>
