@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Web App</title>
-    <link rel="stylesheet" href="\static\css\islandssin.css">
-    <script src="\static\javascript\islandssin.js"></script>
+    <title>Page 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
     <nav>
@@ -17,9 +16,7 @@
             <li><a href="/islands6">Page 6</a></li>
         </ul>
     </nav>
-    <h1>ページ２</h1>
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+    <h1>Page 2</h1>
+    <p>Content of Page 1</p>
 </body>
 </html>
