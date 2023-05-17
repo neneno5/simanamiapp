@@ -1,63 +1,96 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var currentIndex = 0;
-    var maxIndex = 5; // ページの総数 - 1
+var navLinks = document.querySelectorAll('nav a');
 
-    function showPage(index) {
-        var pages = document.querySelectorAll(".page");
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].style.display = "none";
-        }
-        pages[index].style.display = "block";
-    }
-
-    function setActiveNavItem(index) {
-        var navItems = document.querySelectorAll("nav ul li");
-        for (var i = 0; i < navItems.length; i++) {
-            navItems[i].classList.remove("active");
-        }
-        navItems[index].classList.add("active");
-    }
-
-    function navigateToNextPage() {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            showPage(currentIndex);
-            setActiveNavItem(currentIndex);
-        }
-    }
-
-    function navigateToPreviousPage() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            showPage(currentIndex);
-            setActiveNavItem(currentIndex);
-        }
-    }
-
-    document.addEventListener("touchstart", function(event) {
-        startX = event.changedTouches[0].screenX;
+navLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var page = this.getAttribute('href');
+        navigateTo(page);
     });
+});
 
-    document.addEventListener("touchend", function(event) {
-        var endX = event.changedTouches[0].screenX;
-        var diffX = endX - startX;
-        if (diffX > 50) {
+function navigateTo(page) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('content').innerHTML = this.responseText;
+            updateActiveNavLink(page);
+        }
+    };
+    xhttp.open('GET', page, true);
+    xhttp.send();
+}
+
+function updateActiveNavLink(page) {
+    navLinks.forEach(function(link) {
+        if (link.getAttribute('href') === page) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+var startX; // スワイプの開始位置のX座標
+var startY; // スワイプの開始位置のY座標
+var threshold = 100; // スワイプの閾値
+
+document.addEventListener('touchstart', function(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+});
+
+document.addEventListener('touchend', function(event) {
+    var endX = event.changedTouches[0].clientX;
+    var endY = event.changedTouches[0].clientY;
+    var deltaX = endX - startX;
+    var deltaY = endY - startY;
+
+    // スワイプの方向を判定
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > threshold) {
             navigateToPreviousPage();
-        } else if (diffX < -50) {
+        } else if (deltaX < -threshold) {
             navigateToNextPage();
         }
-    });
-
-    var navItems = document.querySelectorAll("nav ul li");
-    for (var i = 0; i < navItems.length; i++) {
-        navItems[i].addEventListener("click", function() {
-            var index = Array.from(navItems).indexOf(this);
-            currentIndex = index;
-            showPage(currentIndex);
-            setActiveNavItem(currentIndex);
-        });
     }
-
-    showPage(currentIndex);
-    setActiveNavItem(currentIndex);
 });
+
+function navigateToPreviousPage() {
+    var currentPage = getCurrentPage();
+    var previousPage = getPreviousPage(currentPage);
+    if (previousPage) {
+        navigateTo(previousPage);
+    }
+}
+
+function navigateToNextPage() {
+    var currentPage = getCurrentPage();
+    var nextPage = getNextPage(currentPage);
+    if (nextPage) {
+        navigateTo(nextPage);
+    }
+}
+
+function getCurrentPage() {
+    var currentURL = window.location.href;
+    var currentPage = currentURL.substring(currentURL.lastIndexOf('/') + 1);
+    return currentPage;
+}
+
+function getPreviousPage(currentPage) {
+    var pages = ['/islands1', '/islands2', '/islands3', '/islands4', '/islands5', '/islands6'];
+    var currentIndex = pages.indexOf(currentPage);
+    if (currentIndex > 0) {
+        return pages[currentIndex - 1];
+    }
+    return null;
+}
+
+function getNextPage(currentPage) {
+    var pages = ['/islands1', '/islands2', '/islands3', '/islands4', '/islands5', '/islands6'];
+    var currentIndex = pages.indexOf(currentPage);
+    if (currentIndex < pages.length - 1) {
+        return pages[currentIndex + 1];
+    }
+    return null;
+}
