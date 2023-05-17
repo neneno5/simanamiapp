@@ -1,35 +1,3 @@
-var navLinks = document.querySelectorAll('nav a');
-
-navLinks.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        var page = this.getAttribute('href');
-        navigateTo(page);
-    });
-});
-
-function navigateTo(page) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('content').innerHTML = this.responseText;
-            updateActiveNavLink(page);
-        }
-    };
-    xhttp.open('GET', page, true);
-    xhttp.send();
-}
-
-function updateActiveNavLink(page) {
-    navLinks.forEach(function(link) {
-        if (link.getAttribute('href') === page) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
 var startX;
 var startY;
 var threshold = 100; // スワイプの閾値
@@ -59,7 +27,7 @@ function navigateToPreviousPage() {
     var currentPage = getCurrentPage();
     var previousPage = getPreviousPage(currentPage);
     if (previousPage) {
-        navigateTo(previousPage);
+        window.location.href = previousPage;
     }
 }
 
@@ -67,7 +35,7 @@ function navigateToNextPage() {
     var currentPage = getCurrentPage();
     var nextPage = getNextPage(currentPage);
     if (nextPage) {
-        navigateTo(nextPage);
+        window.location.href = nextPage;
     }
 }
 
@@ -95,3 +63,32 @@ function getNextPage(currentPage) {
     return null;
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            var currentPage = getCurrentPage();
+            var targetPage = item.getAttribute('data-page');
+            if (targetPage !== currentPage) {
+                window.location.href = targetPage;
+            }
+        });
+    });
+
+    setActiveNavItem();
+});
+
+function setActiveNavItem() {
+    var currentPage = getCurrentPage();
+    var navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(function(item) {
+        var page = item.getAttribute('data-page');
+        if (page === currentPage) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
