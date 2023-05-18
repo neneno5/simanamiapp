@@ -1,71 +1,48 @@
-		// スワイプ距離の閾値（ピクセル）
-        const threshold = 50;
 
-        // タッチ開始位置
-        let startX = null;
-        let startY = null;
+var currentPage = 1;
         
-        // 表示中のページのインデックス
-        let currentIndex = 0;
+function showPage(page) {
+    var pages = document.getElementsByClassName("page");
+	for (var i = 0; i < pages.length; i++) {
+		pages[i].style.display = "none";
+		}
+	document.getElementById("page" + page).style.display = "block";
+            
+	// 目次の色変更
+	var navItems = document.getElementsByClassName("nav-item");
+	for (var i = 0; i < navItems.length; i++) {
+    	navItems[i].classList.remove("active");
+    }
+    document.querySelector(".nav-item:nth-child(" + page + ")").classList.add("active");            
+    currentPage = page;
+}
         
-        // ページの数
-        const numPages = 6;
+function changePage(page) {
+    if (currentPage !== page) {
+        showPage(page);
+    }
+}
         
-        // ページを切り替える関数
-        function changePage(direction) {
-          // 現在表示しているページを非表示にする
-          document.getElementById(`page${currentIndex}`).style.display = 'none';
+document.addEventListener("DOMContentLoaded", function() {
+showPage(1); // 最初のページを表示
+    
+// スワイプによる画面切り替え
+var touchStartX = 0;
+var touchEndX = 0;
+var minSwipeDistance = 50; // スワイプとみなす最小距離
+    
+document.addEventListener("touchstart", function(event) {
+    touchStartX = event.touches[0].clientX;
+});
+    
+document.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    var swipeDistance = touchEndX - touchStartX;
         
-          // 表示するページのインデックスを計算する
-          let nextIndex;
-          if (direction === 'left') {
-            nextIndex = (currentIndex + 1) % numPages;
-          } else {
-            nextIndex = (currentIndex + numPages - 1) % numPages;
-          }
-        
-          // 表示するページを表示する
-          document.getElementById(`page${nextIndex}`).style.display = 'block';
-        
-          // 表示中のページのインデックスを更新する
-          currentIndex = nextIndex;
-        }
-        
-        // タッチ開始時に呼ばれる関数
-        function touchStart(event) {
-          startX = event.touches[0].pageX;
-          startY = event.touches[0].pageY;
-        }
-        
-        // タッチ移動時に呼ばれる関数
-        function touchMove(event) {
-          event.preventDefault();
-        }
-        
-        // タッチ終了時に呼ばれる関数
-        function touchEnd(event) {
-          const endX = event.changedTouches[0].pageX;
-          const endY = event.changedTouches[0].pageY;
-          const diffX = endX - startX;
-          const diffY = endY - startY;
-        
-          if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX > threshold) {
-              // 右にスワイプした場合
-              changePage('right');
-            } else if (diffX < -threshold) {
-              // 左にスワイプした場合
-              changePage('left');
-            }
-          }
-        }
-        
-        // タッチ開始、移動、終了時にイベントリスナーを設定する
-        const container = document.getElementById('container');
-        container.addEventListener('touchstart', touchStart);
-        container.addEventListener('touchmove', touchMove);
-        container.addEventListener('touchend', touchEnd);
-        
-        // 最初に表示するページを表示する
-        document.getElementById('page0').style.display = 'block';
-        
+    if (swipeDistance > minSwipeDistance && currentPage > 1) {
+        showPage(currentPage - 1); // 前のページを表示
+    } else if (swipeDistance < -minSwipeDistance && currentPage < 6) {
+        showPage(currentPage + 1); // 次のページを表示
+    }
+	});
+});
