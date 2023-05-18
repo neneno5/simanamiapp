@@ -124,6 +124,9 @@ body {
     text-decoration: none;
     font-size: 40px;
   }
+  li {
+    padding: 20px 20px;
+  }
   
 /* アイコンがクリックされたらメニューを表示 */
 #drawer_input:checked ~ .nav_content {
