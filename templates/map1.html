@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>map1</title>
     <style>
+        header {
+            float: left;
+        }
         #map {
             height: 100%;
         }
@@ -26,7 +29,10 @@
     </script>
 </head>
 <body onload="initMap()">
+<header>
+<button type="button" onclick="history.back()">戻る</button>
 <h1>しまなみ海道全体の地図</h1>
+</header>
     <div id="map"></div>
 </body>
 </html>
