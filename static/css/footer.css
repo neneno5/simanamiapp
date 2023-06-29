@@ -1,4 +1,4 @@
-footer {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -8,10 +8,10 @@ footer {
     justify-content: center;
 
 }
-nav {
+.footerNav {
     width: 100%;
 }
-ul {
+.footerUl {
     display: flex;
     justify-content: space-around;
     padding: 0;
@@ -20,23 +20,23 @@ ul {
     align-items: center;
     text-align: center;
 }
-li {
+.footerLi {
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-li img {
+.footerIcon {
     width: 30px;
     height: 30px;
 }
-li p {
+.footerText {
     padding: 0;
     margin: 0;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 12px;
 }
-li a {
+.footerLink {
     text-decoration: none;
     color:black;
 }
