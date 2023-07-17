@@ -34,10 +34,6 @@ def index():
 def map1():
     return render_template('map1.html', api_key=api_key)
 
-@app.route('/overview')
-def overview():
-    return render_template('overview.html')
-
 @app.route('/islands')
 def islands():
     return render_template('islands.html')
