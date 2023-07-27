@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@500&display=swap');
 
-body {
-
+main {
     background-image: url("../images/indexback.jpg");
     background-size: cover;
 }
