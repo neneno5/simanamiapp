@@ -38,5 +38,9 @@ def map1():
 def islands():
     return render_template('islands.html')
 
+@app.route('/shiori')
+def shiori():
+    return render_template('shiori.html')
+
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8080)

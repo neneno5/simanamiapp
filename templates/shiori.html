@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>しおり</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\static\css\islands.css">
+    <link rel="stylesheet" href="\static\css\footer.css">
+</head>
+<body>
+    <div id="navbar">
+        <a class="nav-item active" href="#" onclick="changePage(1)">１日目</a>
+        <a class="nav-item" href="#" onclick="changePage(2)">２日目</a>
+        <a class="nav-item" href="#" onclick="changePage(3)">３日目</a>
+    </div>
+    
+    <div class="page" id="page1">
+        <h1>１日目</h1>
+        <p class="mainText"></p>       
+    </div>
+    
+    <div class="page" id="page2">
+        <h1>２日目</h1>
+        <p class="mainText"></p>           
+    </div>
+
+    <div class="page" id="page3">
+        <h1>３日目</h1>
+        <p class="mainText"></p>           
+    </div>
+    
+    <!--footer-->
+    {% include "footer.html" %} 
+    <script src="\static\javascript\islands.js"></script>
+</body>
+</html>
