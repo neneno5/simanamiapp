@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@500&display=swap');
+
+body {
+    background-image: url("../images/indexback.jpg");
+    background-size: cover;
+}
+.link {
+    margin: 10px;
+    padding: 80px;
+    background-color:rgba(173,216,230,0.5);
+    border-radius: 10px;
+    font-family: 'Kaisei Opti', serif;
+    color: #663300;
+    font-size: 60px;
+    text-align: center;
+    text-decoration: none;
+    width: 400px;
+    word-wrap: normal;
+}
+
+.maplink {
+    position: absolute;
+    bottom: 200px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
