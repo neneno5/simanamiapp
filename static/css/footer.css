@@ -10,7 +10,6 @@
 }
 .footerNav {
     width: 100%;
-    height: 60px; /* 例: 固定値の場合 */
 }
 .footerUl {
     display: flex;
