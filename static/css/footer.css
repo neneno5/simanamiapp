@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    
+    height: 60px; /* 例: 固定値の場合 */
     background-color: #e0ffef;
     display: flex;
     justify-content: center;
