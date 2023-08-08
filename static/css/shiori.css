@@ -27,7 +27,7 @@ body {
     font-weight: bold;
 }
 
-#navbar a:hover {
+#navbar li:hover {
     background-color: #53b9f9;
 }
 
