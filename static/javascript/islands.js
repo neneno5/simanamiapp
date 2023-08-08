@@ -43,6 +43,8 @@ document.addEventListener("touchend", function(event) {
         showPage(currentPage - 1); // 前のページを表示
     } else if (swipeDistance < -minSwipeDistance && currentPage < 6) {
         showPage(currentPage + 1); // 次のページを表示
+    } else if (swipeDistance < -minSwipeDistance && currentPage == 6) {
+        showPage(currentPage - 5);
     }
 	});
 });
