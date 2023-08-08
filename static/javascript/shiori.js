@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
             showPage(currentPage - 1); // 前のページを表示
         } else if (swipeDistance < -minSwipeDistance && currentPage < 3) {
             showPage(currentPage + 1); // 次のページを表示
+        } else if (swipeDistance < -minSwipeDistance && currentPage == 3) {
+            showPage(currentPage - 2);
         }
     });
 });
