@@ -13,11 +13,7 @@ body {
     font-size: 13px;
 }
 
-#navbar li {
-    list-style: none;
-}
-
-#navbar li {
+#navbar a {
     float: left;
     display: block;
     color: #333;
@@ -27,7 +23,7 @@ body {
     font-weight: bold;
 }
 
-#navbar li:hover {
+#navbar a:hover {
     background-color: #53b9f9;
 }
 
