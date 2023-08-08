@@ -13,6 +13,10 @@ body {
     font-size: 13px;
 }
 
+#navbar ul {
+    text-decoration: none;
+}
+
 #navbar a {
     float: left;
     display: block;
