@@ -46,5 +46,8 @@ document.addEventListener("touchend", function(event) {
     } else if (swipeDistance < -minSwipeDistance && currentPage == 6) {
         showPage(currentPage - 5);
     }
+    else if (swipeDistance < -minSwipeDistance && currentPage == 1) {
+        showPage(currentPage + 5);
+    }
 	});
 });
