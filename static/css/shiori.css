@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.mainText {
+    word-break:normal;
+}
+
+#navbar {
+    background-color: #f1f1f1;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#navbar a:hover {
+    background-color: #53b9f9;
+}
+
+#navbar .active {
+    background-color: #53b9f9;
+    color: white;
+}
+
+/* 画面コンテンツ */
+.page {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
