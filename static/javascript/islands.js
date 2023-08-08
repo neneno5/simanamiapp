@@ -45,8 +45,7 @@ document.addEventListener("touchend", function(event) {
         showPage(currentPage + 1); // 次のページを表示
     } else if (swipeDistance < -minSwipeDistance && currentPage == 6) {
         showPage(currentPage - 5);
-    }
-    else if (swipeDistance < -minSwipeDistance && currentPage == 1) {
+    } else if (swipeDistance < minSwipeDistance && currentPage == 1) {
         showPage(currentPage + 5);
     }
 	});
