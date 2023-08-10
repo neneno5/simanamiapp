@@ -17,16 +17,19 @@ header {
     background-color: #f1f1f1;
     overflow: hidden;
     font-size: 13px;
+    display: flex; /* ナビゲーションリンクを横並びにする */
+    justify-content: space-around; /* リンクを均等割り付けにする */
+    width: 100%; /* ヘッダー幅いっぱいにリンクを配置 */
 }
 
 #navbar a {
-    float: left;
     display: block;
     color: #333;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 0; /* 上下のパディングのみを調整 */
     text-decoration: none;
     font-weight: bold;
+    flex: 1; /* リンクを均等幅にするための flex 属性 */
 }
 
 #navbar a:hover {
