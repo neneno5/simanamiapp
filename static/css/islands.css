@@ -13,10 +13,6 @@ body {
     font-size: 13px;
 }
 
-#navbar li {
-    list-style: none;
-}
-
 #navbar a {
     float: left;
     display: block;
