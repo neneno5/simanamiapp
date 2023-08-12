@@ -13,6 +13,19 @@ header {
     align-items: center;
 }
 
+.dateTitle {
+    text-align:center;
+}
+
+.dateTitle h1 {
+    display:inline-block;
+    background-color:aqua;
+    width: 130px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 10px;
+ }
+
 #navbar {
     background-color: #f1f1f1;
     overflow: hidden;
