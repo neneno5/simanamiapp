@@ -28,7 +28,7 @@ header {
 
  .dateTitle2 {
     display:inline-block;
-    background-color:#93c9ff;
+    background-color:#9eceff;
     width: 130px;
     height: 40px;
     border-radius: 50%;
@@ -37,7 +37,7 @@ header {
 
  .dateTitle3 {
     display:inline-block;
-    background-color:#ffd3a8;
+    background-color:#ffd6ad;
     width: 130px;
     height: 40px;
     border-radius: 50%;
