@@ -17,9 +17,27 @@ header {
     text-align:center;
 }
 
-.dateTitle h1 {
+.dateTitle1 {
     display:inline-block;
-    background-color:aqua;
+    background-color:#ffcce5;
+    width: 130px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 10px;
+ }
+
+ .dateTitle2 {
+    display:inline-block;
+    background-color:#ccffcc;
+    width: 130px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 10px;
+ }
+
+ .dateTitle3 {
+    display:inline-block;
+    background-color:#ffffcc;
     width: 130px;
     height: 40px;
     border-radius: 50%;
