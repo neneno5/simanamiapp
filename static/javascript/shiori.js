@@ -50,16 +50,38 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+
+
 function initMap() {
-	var latlng = new google.maps.LatLng(34.406038, 133.198332); //中心の緯度, 経度
 	var map = new google.maps.Map(document.getElementById('innMap'), {
-		zoom: 16,
+		zoom: 17,
 		center: {lat: 34.406286, lng: 133.1943841},
         gestureHandling: 'greedy'
 	});
-	var marker = new google.maps.Marker({
-		position: latlng, //マーカーの位置（必須）
-		map: map, //マーカーを表示する地図
-		icon: 'icon_blue.png' //マーカー画像のURL
+
+	var onomichiSta = new google.maps.LatLng(34.4048654, 133.1905841);
+    var inn = new google.maps.LatLng(34.406038, 133.198332);
+	var directionsService = new google.maps.DirectionsService();
+	var directionsRenderer = new google.maps.DirectionsRenderer();
+
+	var request = {
+		origin: onomichiSta, //スタート地点
+		destination: inn, //ゴール地点
+		waypoints: [ //経由地点
+			{location: new google.maps.LatLng(35.683021,139.702668), stopover: false}
+		],
+		travelMode: google.maps.DirectionsTravelMode.WALKING, //移動手段
+	};
+
+	directionsService.route(request, function(result, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsRenderer.setOptions({
+				preserveViewport: true //ズーム率を変更してルート全体を表示しない
+			});
+			// ルート検索の結果を地図上に描画
+			directionsRenderer.setDirections(result);
+			directionsRenderer.setMap(map);
+		}
 	});
 }
