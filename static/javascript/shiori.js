@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('innMap'), {
-		zoom: 17,
+		zoom: 15,
 		center: {lat: 34.406286, lng: 133.1943841},
         gestureHandling: 'greedy'
 	});
 
-	var onomichiSta = new google.maps.LatLng(34.4048654, 133.1905841);
+	var onomichiSta = new google.maps.LatLng(34.4048654, 133.192269);
     var inn = new google.maps.LatLng(34.406038, 133.198332);
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -68,9 +68,9 @@ function initMap() {
 	var request = {
 		origin: onomichiSta, //スタート地点
 		destination: inn, //ゴール地点
-		waypoints: [ //経由地点
-			{location: new google.maps.LatLng(35.683021,139.702668), stopover: false}
-		],
+	//	waypoints: [ //経由地点
+	//		{location: new google.maps.LatLng(35.683021,139.702668), stopover: false}
+	//	],
 		travelMode: google.maps.DirectionsTravelMode.WALKING, //移動手段
 	};
 
