@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function initMap() {
 	var latlng = new google.maps.LatLng(34.406038, 133.198332); //中心の緯度, 経度
 	var map = new google.maps.Map(document.getElementById('innMap'), {
-		zoom: 17,
-		center: latlng
+		zoom: 10,
+		center: {lat: 34.406286, lng: 133.1943841},
+        gestureHandling: 'greedy'
 	});
 	var marker = new google.maps.Marker({
 		position: latlng, //マーカーの位置（必須）
