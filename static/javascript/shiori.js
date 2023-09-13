@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('innMap'), {
-		zoom: 15,
+		zoom: 15.5,
 		center: {lat: 34.406286, lng: 133.1943841},
         gestureHandling: 'greedy'
 	});

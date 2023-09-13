@@ -80,9 +80,9 @@ header {
 }
 
 #innMap {
-	width: 80%;
+	width: 100%;
 	max-width: 700px;
-	height: 400px;
+	height: 300px;
 	margin: 0 auto;
 	padding: 0;
 }
