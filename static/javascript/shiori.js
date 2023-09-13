@@ -1,4 +1,3 @@
-
 var currentPage = 1;
 
 function showPage(page) {
@@ -50,3 +49,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function initMap() {
+	var latlng = new google.maps.LatLng(34.406038, 133.198332); //中心の緯度, 経度
+	var map = new google.maps.Map(document.getElementById('innMap'), {
+		zoom: 17,
+		center: latlng
+	});
+	var marker = new google.maps.Marker({
+		position: latlng, //マーカーの位置（必須）
+		map: map, //マーカーを表示する地図
+		icon: 'icon_blue.png' //マーカー画像のURL
+	});
+}

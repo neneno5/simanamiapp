@@ -40,7 +40,7 @@ def islands():
 
 @app.route('/shiori')
 def shiori():
-    return render_template('shiori.html')
+    return render_template('shiori.html', api_key=api_key)
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8080)
