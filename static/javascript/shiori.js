@@ -22,6 +22,9 @@ function changePage(page) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    showPage(1); // 最初のページを表示
+});
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('innMap'), {
