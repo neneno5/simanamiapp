@@ -11,22 +11,8 @@ load_dotenv()
 # Google Maps APIキーの取得
 api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
 app.config['SECRET_KEY'] = 'secret key here'
-auth = HTTPDigestAuth()
-id_list = {
-    'nene': os.environ.get('NENEpass'),
-    'tosiki': os.environ.get('TOSIKIpass'),
-    'user': os.environ.get('USERpass')
-}
-
-#入力されたidに該当するパスワードを比較のために取得する
-@auth.get_password
-def get_pw(id):
-    if id in id_list:
-        return id_list.get(id)
-    return None
 
 @app.route('/')
-@auth.login_required
 def index():
     return render_template('index.html') 
 
