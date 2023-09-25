@@ -10,7 +10,6 @@ app = Flask(__name__)
 load_dotenv()
 # Google Maps APIキーの取得
 api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
-app.config['SECRET_KEY'] = 'secret key here'
 
 @app.route('/')
 def index():
