@@ -22,40 +22,10 @@ function changePage(page) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    showPage(1); // 最初のページを表示
-    
-    // スワイプによる画面切り替え
-    var touchStartX = 0;
-    var touchEndX = 0;
-    var minSwipeDistance = 50; // スワイプとみなす最小距離
-    
-    document.addEventListener("touchstart", function(event) {
-        touchStartX = event.touches[0].clientX;
-    });
-    
-    document.addEventListener("touchend", function(event) {
-        touchEndX = event.changedTouches[0].clientX;
-        var swipeDistance = touchEndX - touchStartX;
-        
-        if (swipeDistance > minSwipeDistance && currentPage > 1) {
-            showPage(currentPage - 1); // 前のページを表示
-        } else if (swipeDistance < -minSwipeDistance && currentPage < 3) {
-            showPage(currentPage + 1); // 次のページを表示
-        } else if (swipeDistance < -minSwipeDistance && currentPage == 3) {
-            showPage(currentPage - 2);
-        } else if (swipeDistance > minSwipeDistance && currentPage == 1) {
-            showPage(currentPage + 2);
-        }
-    });
-});
-
-
-
 
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('innMap'), {
-		zoom: 15.5,
+		zoom: 16,
 		center: {lat: 34.406286, lng: 133.1943841},
         gestureHandling: 'greedy'
 	});
