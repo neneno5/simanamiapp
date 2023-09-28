@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="\static\css\shiori.css">
     <link rel="stylesheet" href="\static\css\footer.css">
-    <script type="text/javascript" src="\static\javascript\intense.min.js"></script>
-    <style type="text/css">
-        .fullscreen-image {
-        cursor: url("\static\images\plus_cursor.png"), pointer; /* マウスポインタを指定 */
-        display: inline-block;   /* 横方向に並べる指定 */
-        margin: 0px 5px 5px 0px; /* 周囲の余白量(右と下に5pxずつ) */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -31,9 +23,6 @@
         <h2>成田空港集合</h2>
         <div class="mainText">
             <p>8:50発→松山着9:50　ジェットスター</p>
-            <div class="fullscreen-image" data-image="\static\images\narita_terminal_map.png" data-title="空港地図" data-caption="空港の地図">
-                <img src="\static\images\narita_terminal_map_mini.png" alt="空港地図">
-            </div>
         </div>
         <h2>松山空港到着</h2>
         <h2>今治</h2>
@@ -78,9 +67,5 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap" async defer></script>
     <script src="\static\javascript\shiori.js"></script>
-    <script type="text/javascript">
-        var elements = document.querySelectorAll( '.fullscreen-image' );
-        Intense( elements );
-    </script>
 </body>
 </html>
