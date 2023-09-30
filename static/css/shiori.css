@@ -86,3 +86,10 @@ header {
 	margin: 0 auto;
 	padding: 0;
 }
+
+.naritaAirportMap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    max-width: none;
+    height: auto;
+}
