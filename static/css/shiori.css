@@ -93,3 +93,8 @@ header {
     max-width: none;
     height: auto;
 }
+
+.backgroundBox {
+    box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8); /*影の指定*/
+    padding:10px;
+}
