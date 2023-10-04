@@ -33,7 +33,7 @@ function initMap() {
         gestureHandling: 'greedy'
 	});
 
-	var start = new google.maps.LatLng(34.2168676, 133.0529635);
+	var start = new google.maps.LatLng(34.2168391, 133.0541043);
     var inn = new google.maps.LatLng(34.2575849, 133.0475745);
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
