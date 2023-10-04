@@ -49,9 +49,9 @@ function initMap() {
 
 	directionsService.route(request, function(result, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
-			directionsRenderer.setOptions({
-				preserveViewport: true //ズーム率を変更してルート全体を表示しない
-			});
+	//		directionsRenderer.setOptions({
+	//			preserveViewport: true //ズーム率を変更してルート全体を表示しない
+	//		});
 			// ルート検索の結果を地図上に描画
 			directionsRenderer.setDirections(result);
 			directionsRenderer.setMap(map);
