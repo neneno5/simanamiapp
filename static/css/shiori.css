@@ -89,11 +89,11 @@ header {
 
 .naritaMapTextalign {
     padding:10px;
+    text-align:center;
 }
 
 .naritaAirportMap {
     width: 90vw;
-    text-align:center;
 }
 
 /*セロテープ風*/
