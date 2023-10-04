@@ -87,13 +87,13 @@ header {
 	padding: 0;
 }
 
-.naritaMapTextalign {
+.nnaritaAirportMap {
     padding:10px;
     text-align:center;
 }
 
-.naritaAirportMap {
-    width: 90vw;
+.naritaAirportMap img {
+    width: 300px;
 }
 
 /*セロテープ風*/
