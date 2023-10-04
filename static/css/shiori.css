@@ -100,7 +100,7 @@ header {
 /*セロテープ風*/
 .box76{
     margin: 2em auto; /* ボックスの余白 */
-    background-color: #E6ECF2; /* ボックス背景色 */
+    background-color: #F6EEEC; /* ボックス背景色 */
     padding:2.5em 2em 2em; /* ボックス内側余白 */
     position:relative; /* 配置(ここを基準に) */
     }
