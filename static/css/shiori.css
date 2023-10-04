@@ -105,7 +105,7 @@ header {
     position:relative; /* 配置(ここを基準に) */
     }
     .box76 .box-title {
-    background-color: rgba(240,252,5,0.5);/* テープ背景色と透過*/
+    background-image: repeating-linear-gradient(-45deg,#F6EEEC 0, #F6EEEC 3px,#fafafa 3px,#fafafa 6px);/*ストライプ*/
     border-left: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ左*/
     border-right: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ右*/
     box-shadow: 0 0 5px rgba(0,0,0,0.2); /*テープ影*/
