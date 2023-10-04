@@ -93,7 +93,7 @@ header {
 }
 
 .naritaAirportMap img {
-    width: 350px;
+    width: 320px;
 }
 
 /*セロテープ風*/
@@ -111,7 +111,7 @@ header {
     transform: rotate(-2deg);/*テープの傾き*/
     font-size: 1em;/*タイトル文字の大きさ*/
     color: #666; /*タイトル文字色 */
-    padding: 5px 20px;/*タイトルの余白*/
+    padding: 0px 20px;/*タイトルの余白*/
     line-height: 1;/*タイトルの行の高さ*/
     position:absolute;/*配置(ここを動かす)*/
     top: -15px; /*上から（-10px）移動*/
