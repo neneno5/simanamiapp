@@ -6,6 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="\static\css\shiori.css">
     <link rel="stylesheet" href="\static\css\footer.css">
+
+    <style>
+    /* CSSアニメーションの設定 */
+    .korokoro {
+      -webkit-animation: korokoro 2.5s linear 0s 1;
+      animation: korokoro 2.5s linear 0s 1;
+    }
+    @-webkit-keyframes korokoro {
+      0%   { -webkit-transform: translate(0%, 0%); }
+      5%   { -webkit-transform: translate(10%, 0%) rotate(10deg); }
+      25%  { -webkit-transform: translate(20%, 0%) rotate(20deg); }
+      30%  { -webkit-transform: translate(-10%, 0%) rotate(-10deg); }
+      35%  { -webkit-transform: translate(-15%, 0%) rotate(-15deg); }
+      45%  { -webkit-transform: translate(10%, 0%) rotate(10deg); }
+      50%  { -webkit-transform: translate(15%, 0%) rotate(15deg); }
+      60%  { -webkit-transform: translate(-5%, 0%) rotate(-5deg); }
+      65%  { -webkit-transform: translate(-7%, 0%) rotate(-7deg); }
+      75%  { -webkit-transform: translate(0%, 0%) rotate(0deg); }
+      100% { -webkit-transform: translate(0%, 0%) rotate(0deg); }
+    }
+        @keyframes korokoro {
+      0%   { transform: translate(0%, 0%); }
+      5%   { transform: translate(10%, 0%) rotate(10deg); }
+      25%  { transform: translate(20%, 0%) rotate(20deg); }
+      30%  { transform: translate(-10%, 0%) rotate(-10deg); }
+      35%  { transform: translate(-15%, 0%) rotate(-15deg); }
+      45%  { transform: translate(10%, 0%) rotate(10deg); }
+      50%  { transform: translate(15%, 0%) rotate(15deg); }
+      60%  { transform: translate(-5%, 0%) rotate(-5deg); }
+      65%  { transform: translate(-7%, 0%) rotate(-7deg); }
+      75%  { transform: translate(0%, 0%) rotate(0deg); }
+      100% { transform: translate(0%, 0%) rotate(0deg); }
+    }
+    </style>
+    <script src="js/common.js"></script>
 </head>
 <body>
     <header>
@@ -78,6 +113,13 @@
         </div>           
     </div>
     
+      <div class="shadow"></div>
+  <img id="mitarashi" class="korokoro" src="\static\images\tintira.png" width="200" height="200">
+  <script>
+    // ID値「mitarashi」に対してCSSアニメ―ション「korokoro」を100ミリ秒の間隔を空けてループ再生
+    looopAnimation("mitarashi", "korokoro", 100);
+  </script>
+
     <!--footer-->
     {% include "footer.html" %} 
 
