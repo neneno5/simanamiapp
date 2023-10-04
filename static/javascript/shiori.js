@@ -44,7 +44,7 @@ function initMap() {
 	//	waypoints: [ //経由地点
 	//		{location: new google.maps.LatLng(35.683021,139.702668), stopover: false}
 	//	],
-		travelMode: google.maps.DirectionsTravelMode.BICYCLING, //移動手段
+		travelMode: google.maps.DirectionsTravelMode.WALKING, //移動手段
 	};
 
 	directionsService.route(request, function(result, status) {
