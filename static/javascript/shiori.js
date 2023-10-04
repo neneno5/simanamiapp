@@ -29,17 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('innMap'), {
 		zoom: 16,
-		center: {lat: 34.406286, lng: 133.1943841},
+		center: {lat: 34.2392124, lng: 133.0442671},
         gestureHandling: 'greedy'
 	});
 
-	var onomichiSta = new google.maps.LatLng(34.4048654, 133.192269);
-    var inn = new google.maps.LatLng(34.406038, 133.198332);
+	var start = new google.maps.LatLng(34.2168676, 133.0529635);
+    var inn = new google.maps.LatLng(34.2575849, 133.0475745);
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
 
 	var request = {
-		origin: onomichiSta, //スタート地点
+		origin: start, //スタート地点
 		destination: inn, //ゴール地点
 	//	waypoints: [ //経由地点
 	//		{location: new google.maps.LatLng(35.683021,139.702668), stopover: false}
