@@ -5,6 +5,7 @@ body {
 }
 .mainText {
     word-break:normal;
+    text-align: left;
 }
 
 header {
