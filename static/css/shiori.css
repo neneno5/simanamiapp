@@ -8,27 +8,6 @@ body {
     text-align: left;
 }
 
-ol li {
-    list-style-type: none; /*リストの点を非表示*/
-    position: relative; /*基準位置に指定*/
-    padding-left: 1.6em; /*余白を変更する場合はここ*/
-  }
-ol li:before {
-    border-radius: 50%; /*丸を生成*/
-    width: 30px; /*丸の幅*/
-    height: 30px; /*丸の高さ*/
-    background: #a5c9c1; /*丸の色指定*/
-    display:block;
-    position: absolute;
-    left: 0; /*丸アイコンの左端からの位置*/
-
-    content: "\f1b0"; /*アイコンを変更する場合はここ*/
-    color: #fff; /*猫アイコンの色*/
-    text-align: center; /*猫アイコンをセンターに移動*/
-    top: 50%; /*アイコンをセンターに移動*/
-    transform: translateY(-50%); /*アイコンをセンターに移動*/
-}
-
 header {
     display: flex;
     justify-content: center;
