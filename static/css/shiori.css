@@ -141,4 +141,7 @@ header {
         font-size: 12px;
         content: "\f1b0"; /*アイコンを変更する場合はここ*/
         color: #fff; /*猫アイコンの色*/
+        text-align: center; /*猫アイコンをセンターに移動*/
+        top: 70%; /*アイコンをセンターに移動*/
+        transform: translateY(-50%); /*アイコンをセンターに移動*/
       }
