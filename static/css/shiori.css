@@ -103,7 +103,7 @@ header {
     background-color: #F6EEEC; /* ボックス背景色 */
     padding:2.5em 2em 2em; /* ボックス内側余白 */
     position:relative; /* 配置(ここを基準に) */
-    }
+}
     .box76 .box-title {
     background-image: repeating-linear-gradient(-45deg,#F6EEEC 0, #F6EEEC 3px,#fafafa 3px,#fafafa 6px);/*ストライプ*/
     border-left: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ左*/
@@ -117,18 +117,27 @@ header {
     position:absolute;/*配置(ここを動かす)*/
     top: -15px; /*上から（-10px）移動*/
     left: 20px; /*左から(20px)移動*/
-    }
+}
 
-      ol li {
-        line-height: 1.5;
-        padding: 0.5em 0;
-        list-style-type: none!important;/*ポチ消す*/
-      }
+ol {
+    padding: 0.5em 1em 0.5em 2.3em;
+    position: relative;
+  }
+
+ol li {
+    line-height: 1.5;
+    padding: 0.5em 0;
+    list-style-type: none!important;/*ポチ消す*/
+}
       
-      ol li:before {
-        font-family: "Font Awesome 5 Free";
-        content: "\f1b0";/*アイコン種類*/
-        position: absolute;
-        left : 1em; /*左端からのアイコンまで*/
-        color: #ff938b; /*アイコン色*/
-      }
+ol li:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f1b0";/*アイコン種類*/
+    position: absolute;
+    left : 1em; /*左端からのアイコンまで*/
+    color: #ff938b; /*アイコン色*/
+}
+
+.mainTextInLi {
+
+}
