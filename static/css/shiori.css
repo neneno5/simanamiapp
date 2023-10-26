@@ -119,13 +119,6 @@ header {
     left: 20px; /*左から(20px)移動*/
     }
 
-    ol {
-        border: solid 2px #ff938b;
-        background: #fffaf1;
-        padding: 0.5em 1em 0.5em 2.3em;
-        position: relative;
-      }
-      
       ol li {
         line-height: 1.5;
         padding: 0.5em 0;
