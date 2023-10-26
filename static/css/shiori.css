@@ -120,28 +120,22 @@ header {
     }
 
     ol {
-        padding: 1em; /*余白を変更する場合はここ*/ 
-        margin: 2em 0;
+        border: solid 2px #ff938b;
+        background: #fffaf1;
+        padding: 0.5em 1em 0.5em 2.3em;
+        position: relative;
       }
-
+      
       ol li {
-        list-style-type: none; /*リストの点を非表示*/
-        position: relative; /*基準位置に指定*/
-        padding-left: 1.6em; /*余白を変更する場合はここ*/
+        line-height: 1.5;
+        padding: 0.5em 0;
+        list-style-type: none!important;/*ポチ消す*/
       }
+      
       ol li:before {
-        border-radius: 50%; /*丸を生成*/
-        width: 22px; /*丸の幅*/
-        height: 22px; /*丸の高さ*/
-        background: #a5c9c1; /*丸の色指定*/
-        display:block;
-        position: absolute;
-        left: 0; /*丸アイコンの左端からの位置*/
         font-family: "Font Awesome 5 Free";
-        font-size: 12px;
-        content: "\f1b0"; /*アイコンを変更する場合はここ*/
-        color: #fff; /*猫アイコンの色*/
-        text-align: center; /*猫アイコンをセンターに移動*/
-        top: 50%; /*アイコンをセンターに移動*/
-        transform: translateY(-20%); /*アイコンをセンターに移動*/
+        content: "\f1b0";/*アイコン種類*/
+        position: absolute;
+        left : 1em; /*左端からのアイコンまで*/
+        color: #ff938b; /*アイコン色*/
       }
