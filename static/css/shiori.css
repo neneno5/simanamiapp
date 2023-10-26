@@ -119,6 +119,10 @@ header {
     left: 20px; /*左から(20px)移動*/
     }
 
+    ol {
+        padding: 1em; /*余白を変更する場合はここ*/ 
+        margin: 2em 0;
+      }
 
       ol li {
         list-style-type: none; /*リストの点を非表示*/
